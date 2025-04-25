@@ -50,3 +50,46 @@ body {
     100% { background-position: 0% 50%; }
   }
   
+  #blobs-container {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1; /* behind the text */
+    filter: blur(80px);
+  }
+  
+  .blob {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    opacity: 0.7;
+    animation: moveBlobs 30s infinite ease-in-out alternate;
+  }
+  
+  #blob1 {
+    background: #ff9a9e;
+    top: 10%; left: 20%;
+    animation-delay: 0s;
+  }
+  
+  #blob2 {
+    background: #a1c4fd;
+    top: 50%; left: 40%;
+    animation-delay: 10s;
+  }
+  
+  #blob3 {
+    background: #fbc2eb;
+    top: 30%; left: 70%;
+    animation-delay: 20s;
+  }
+  
+  @keyframes moveBlobs {
+    0%   { transform: scale(1) translate(0, 0); }
+    50%  { transform: scale(1.2) translate(-50px, 30px); }
+    100% { transform: scale(1) translate(20px, -40px); }
+  }
+  
