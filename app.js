@@ -57,15 +57,20 @@ function applyMode() {
     const units = document.getElementById("units");
   
     const gradient = gradientPresets[currentGradient].colors.join(", ");
+    const gradientStyle = `linear-gradient(270deg, ${gradient})`;
   
     if (currentMode === "gradient-bg") {
       body.className = "bg-gradient";
-      body.style.setProperty("--gradient", `linear-gradient(270deg, ${gradient})`);
+      body.style.setProperty("--gradient", gradientStyle);
+  
+      // Make text white
       distance.className = "white-text";
       units.className = "white-text";
     } else {
       body.className = "bg-white";
-      body.style.setProperty("--gradient", `linear-gradient(270deg, ${gradient})`);
+      body.style.setProperty("--gradient", gradientStyle);
+  
+      // Apply gradient text class
       distance.className = "gradient-text";
       units.className = "gradient-text";
     }
