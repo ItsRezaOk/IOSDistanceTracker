@@ -46,10 +46,7 @@ function startTracking() {
 
 
 
-document.body.addEventListener("dblclick", () => {
-  currentMode = currentMode === "gradient-bg" ? "gradient-text" : "gradient-bg";
-  applyMode();
-});
+
 
 function applyMode() {
     const body = document.body;
@@ -99,28 +96,28 @@ const gradientPresets = [
       colors: ["#fbc2eb", "#a6c1ee", "#fad0c4", "#ffdde1"]
     }
   ];
-  
-  let currentMode = "gradient-text"; // or 'gradient-text'
+
+
+  let currentMode = "gradient-bg";
   let currentGradient = 0;
-
   let clickTimeout;
-
-document.body.addEventListener("click", () => {
-  if (clickTimeout) return;
-
-  clickTimeout = setTimeout(() => {
-    currentGradient = (currentGradient + 1) % gradientPresets.length;
-    applyMode();
+  
+  document.body.addEventListener("click", () => {
+    if (clickTimeout) return;
+    clickTimeout = setTimeout(() => {
+      currentGradient = (currentGradient + 1) % gradientPresets.length;
+      applyMode();
+      clickTimeout = null;
+    }, 250);
+  });
+  
+  document.body.addEventListener("dblclick", () => {
+    clearTimeout(clickTimeout);
     clickTimeout = null;
-  }, 400); // Wait 250ms to see if it becomes a double-click
-});
-
-document.body.addEventListener("dblclick", () => {
-  clearTimeout(clickTimeout); // cancel single click if double clicked
-  clickTimeout = null;
-  currentMode = currentMode === "gradient-bg" ? "gradient-text" : "gradient-bg";
-  applyMode();
-});
+    currentMode = currentMode === "gradient-bg" ? "gradient-text" : "gradient-bg";
+    applyMode();
+  });
+  
 
   
   
