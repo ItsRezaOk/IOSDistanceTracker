@@ -13,14 +13,15 @@ body {
   
   /* Distance styles */
   #distance {
-    font-size: 15vw;
+    font-size: clamp(3rem, 15vw, 12rem);
     font-weight: 600;
   }
   
   #units {
-    font-size: 5vw;
-    margin-top: 10px;
+    font-size: clamp(1rem, 5vw, 4rem);
+    margin-top: 1rem;
   }
+  
   
   /* Apple-style moving gradient BACKGROUND */
   body.bg-gradient {
