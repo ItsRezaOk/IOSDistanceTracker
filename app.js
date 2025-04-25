@@ -112,7 +112,7 @@ document.body.addEventListener("click", () => {
     currentGradient = (currentGradient + 1) % gradientPresets.length;
     applyMode();
     clickTimeout = null;
-  }, 250); // Wait 250ms to see if it becomes a double-click
+  }, 400); // Wait 250ms to see if it becomes a double-click
 });
 
 document.body.addEventListener("dblclick", () => {
