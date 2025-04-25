@@ -55,6 +55,15 @@ function applyMode() {
   
     const gradient = gradientPresets[currentGradient].colors.join(", ");
     const gradientStyle = `linear-gradient(270deg, ${gradient})`;
+
+    // Sync blob colors to current gradient
+    const blobColors = gradientPresets[currentGradient].colors;
+
+    // Only use first 3 colors (safe)
+    document.getElementById("blob1").style.background = blobColors[0];
+    document.getElementById("blob2").style.background = blobColors[1] || blobColors[0];
+    document.getElementById("blob3").style.background = blobColors[2] || blobColors[0];
+
   
     if (currentMode === "gradient-bg") {
       body.className = "bg-gradient";
