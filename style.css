@@ -26,11 +26,11 @@ body {
     
   @media (max-width: 500px) {
     #distance {
-      font-size: 15vw; /* larger than default clamp for mobile only */
+      font-size: 30vw; /* larger than default clamp for mobile only */
     }
   
     #units {
-      font-size: 7vw;
+      font-size: 14vw;
     }
   }
   
