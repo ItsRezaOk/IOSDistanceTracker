@@ -44,7 +44,7 @@ function startTracking() {
   }
 }
 
-let currentMode = "gradient-bg"; // default mode
+
 
 document.body.addEventListener("dblclick", () => {
   currentMode = currentMode === "gradient-bg" ? "gradient-text" : "gradient-bg";
@@ -52,21 +52,65 @@ document.body.addEventListener("dblclick", () => {
 });
 
 function applyMode() {
-  const body = document.body;
-  const distance = document.getElementById("distance");
-  const units = document.getElementById("units");
-
-  if (currentMode === "gradient-bg") {
-    body.className = "bg-gradient";
-    distance.className = "white-text";
-    units.className = "white-text";
-  } else {
-    body.className = "bg-white";
-    distance.className = "gradient-text";
-    units.className = "gradient-text";
+    const body = document.body;
+    const distance = document.getElementById("distance");
+    const units = document.getElementById("units");
+  
+    const gradient = gradientPresets[currentGradient].colors.join(", ");
+  
+    if (currentMode === "gradient-bg") {
+      body.className = "bg-gradient";
+      body.style.setProperty("--gradient", `linear-gradient(270deg, ${gradient})`);
+      distance.className = "white-text";
+      units.className = "white-text";
+    } else {
+      body.className = "bg-white";
+      body.style.setProperty("--gradient", `linear-gradient(270deg, ${gradient})`);
+      distance.className = "gradient-text";
+      units.className = "gradient-text";
+    }
   }
-}
+  
+const gradientPresets = [
+    // Light gradients for background mode
+    {
+      name: "coralSunrise",
+      colors: ["#ff9a9e", "#fad0c4", "#fbc2eb", "#a1c4fd"]
+    },
+    {
+      name: "mintGlow",
+      colors: ["#a1c4fd", "#c2e9fb", "#b2fefa", "#e0c3fc"]
+    },
+    {
+      name: "sunsetSky",
+      colors: ["#ffecd2", "#fcb69f", "#f6d365", "#fda085"]
+    },
+    {
+      name: "softPeach",
+      colors: ["#f6d365", "#fda085", "#fbc2eb", "#a1c4fd"]
+    },
+    {
+      name: "roseQuartz",
+      colors: ["#fbc2eb", "#a6c1ee", "#fad0c4", "#ffdde1"]
+    }
+  ];
+  
+  let currentMode = "gradient-bg"; // or 'gradient-text'
+  let currentGradient = 0;
 
+  // Double-tap switches mode
+document.body.addEventListener("dblclick", () => {
+    currentMode = currentMode === "gradient-bg" ? "gradient-text" : "gradient-bg";
+    applyMode();
+  });
+  
+  // Single-tap or click cycles gradient
+  document.body.addEventListener("click", () => {
+    currentGradient = (currentGradient + 1) % gradientPresets.length;
+    applyMode();
+  });
+  
+  
 applyMode(); // initial apply
 
 

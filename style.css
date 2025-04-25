@@ -24,27 +24,14 @@ body {
   
   /* Apple-style moving gradient BACKGROUND */
   body.bg-gradient {
-    background: linear-gradient(270deg,
-      #ff9a9e, #fad0c4, #fad0c4, #fbc2eb,
-      #a18cd1, #fbc2eb, #a1c4fd
-    );
+    background: var(--gradient);
     background-size: 1000% 1000%;
     animation: appleBgMove 20s ease infinite;
     color: white;
   }
   
-  /* White background mode */
-  body.bg-white {
-    background: white;
-    color: black;
-  }
-  
-  /* Gradient TEXT mode */
   .gradient-text {
-    background: linear-gradient(270deg,
-      #ff9a9e, #fad0c4, #fad0c4, #fbc2eb,
-      #a18cd1, #fbc2eb, #a1c4fd
-    );
+    background: var(--gradient);
     background-size: 1000% 1000%;
     animation: appleBgMove 12s ease infinite;
     -webkit-background-clip: text;
