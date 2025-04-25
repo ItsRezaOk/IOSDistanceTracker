@@ -100,7 +100,7 @@ const gradientPresets = [
     }
   ];
   
-  let currentMode = "gradient-bg"; // or 'gradient-text'
+  let currentMode = "gradient-text"; // or 'gradient-text'
   let currentGradient = 0;
 
   let clickTimeout;
