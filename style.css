@@ -56,8 +56,15 @@ body {
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    z-index: -1; /* behind the text */
+    z-index: -1;
     filter: blur(80px);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+
+  body.bg-gradient #blobs-container {
+    opacity: 1;
   }
   
   .blob {
