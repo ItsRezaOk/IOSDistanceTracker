@@ -136,4 +136,14 @@ body {
     100% { background-position: 100px 100px; }
   }
   
+  @media (max-width: 500px) {
+    #distance {
+      font-size: 12vw; /* larger than default clamp for mobile only */
+    }
+  
+    #units {
+      font-size: 6vw;
+    }
+  }
+  
   
