@@ -1,0 +1,65 @@
+/* Root Styles */
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    text-align: center;
+    transition: background 0.5s ease;
+  }
+  
+  /* Distance styles */
+  #distance {
+    font-size: 15vw;
+    font-weight: 600;
+  }
+  
+  #units {
+    font-size: 5vw;
+    margin-top: 10px;
+  }
+  
+  /* Apple-style moving gradient BACKGROUND */
+  body.bg-gradient {
+    background: linear-gradient(270deg,
+      #ff9a9e, #fad0c4, #fad0c4, #fbc2eb,
+      #a18cd1, #fbc2eb, #a1c4fd
+    );
+    background-size: 1000% 1000%;
+    animation: appleBgMove 20s ease infinite;
+    color: white;
+  }
+  
+  /* White background mode */
+  body.bg-white {
+    background: white;
+    color: black;
+  }
+  
+  /* Gradient TEXT mode */
+  .gradient-text {
+    background: linear-gradient(270deg,
+      #ff9a9e, #fad0c4, #fad0c4, #fbc2eb,
+      #a18cd1, #fbc2eb, #a1c4fd
+    );
+    background-size: 1000% 1000%;
+    animation: appleBgMove 12s ease infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  /* Simple white text mode */
+  .white-text {
+    color: white;
+  }
+  
+  /* Animation keyframes */
+  @keyframes appleBgMove {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
