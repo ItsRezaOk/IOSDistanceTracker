@@ -98,17 +98,25 @@ const gradientPresets = [
   let currentMode = "gradient-bg"; // or 'gradient-text'
   let currentGradient = 0;
 
-  // Double-tap switches mode
-document.body.addEventListener("dblclick", () => {
-    currentMode = currentMode === "gradient-bg" ? "gradient-text" : "gradient-bg";
-    applyMode();
-  });
-  
-  // Single-tap or click cycles gradient
-  document.body.addEventListener("click", () => {
+  let clickTimeout;
+
+document.body.addEventListener("click", () => {
+  if (clickTimeout) return;
+
+  clickTimeout = setTimeout(() => {
     currentGradient = (currentGradient + 1) % gradientPresets.length;
     applyMode();
-  });
+    clickTimeout = null;
+  }, 250); // Wait 250ms to see if it becomes a double-click
+});
+
+document.body.addEventListener("dblclick", () => {
+  clearTimeout(clickTimeout); // cancel single click if double clicked
+  clickTimeout = null;
+  currentMode = currentMode === "gradient-bg" ? "gradient-text" : "gradient-bg";
+  applyMode();
+});
+
   
   
 applyMode(); // initial apply
