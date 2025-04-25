@@ -15,6 +15,7 @@ body {
   #distance {
     font-size: clamp(4rem, 20vw, 10rem); /* larger min, tighter clamp */
     font-weight: 600;
+    line-height: 1;
   }
   
   #units {
@@ -22,6 +23,16 @@ body {
     margin-top: 1rem;
   }
   
+    
+  @media (max-width: 500px) {
+    #distance {
+      font-size: 15vw; /* larger than default clamp for mobile only */
+    }
+  
+    #units {
+      font-size: 7vw;
+    }
+  }
   
   
   /* Apple-style moving gradient BACKGROUND */
@@ -136,14 +147,5 @@ body {
     100% { background-position: 100px 100px; }
   }
   
-  @media (max-width: 500px) {
-    #distance {
-      font-size: 12vw; /* larger than default clamp for mobile only */
-    }
-  
-    #units {
-      font-size: 6vw;
-    }
-  }
   
   
